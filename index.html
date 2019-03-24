@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <div id="chart-wrapper">
+      <svg width="1000" height="500" id="main" viewBox="0 0 1000 500" preserveAspectRatio="none" style="transform: scale(1, -1)">
+        <filter id="dropshadow" height="130%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.3"/>
+          </feComponentTransfer>
+          <feMerge>
+            <feMergeNode/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <g class="ticks">
+          <line class="tick1" x1="10" x2="990" y1="100" y2="100" stroke="black"/>
+          <line class="tick2" x1="10" x2="990" y1="200" y2="200" stroke="black"/>
+          <line class="tick3" x1="10" x2="990" y1="300" y2="300" stroke="black"/>
+          <line class="tick4" x1="10" x2="990" y1="400" y2="400" stroke="black"/>
+          <line class="tick5" x1="10" x2="990" y1="500" y2="500" stroke="black"/>
+          <g class="tick">
+            <line class="tick" x1="10" x2="990" y1="2" y2="2"/>
+          </g>
+        </g>
+        <g class="tick-texts">
+          <text class="tick-text tick-text1"/>
+          <text class="tick-text tick-text2"/>
+          <text class="tick-text tick-text3"/>
+          <text class="tick-text tick-text4"/>
+          <text class="tick-text tick-text5"/>
+          <text class="tick-text" x="10" y="490" transform="scale(1,-1)">0</text>
+        </g>
+      </svg>
+      <div class="xscale-container">
+        <div id='xscale'></div>
+      </div>
+      <div style="transform: scale(1, -1)">
+        <svg width="1000" height="100" id="zoom" viewBox="0 0 1000 100" preserveAspectRatio="none">
+          <mask id="mask">
+            <rect x="0" y="0" width="1110" height="278" fill="white"/>
+          </mask>
+          <rect id="bg" x="0" y="0" width="1110" height="278" fill="rgba(243, 248, 250, 0.8)" mask="url(#mask)"/>
+        </svg>
+      </div>
+      <div id="buttons">
+      </div>
+    </div>
+    <script type="text/javascript" src="app.bundle.js"></script>
+  </body>
+</html>
