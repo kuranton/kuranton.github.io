@@ -1,0 +1,170 @@
+html, body {
+  margin: 0;
+  width: 100%;
+  font-size: 10px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  html, body {
+    font-size: 20px;
+  }
+}
+
+.wrapper {
+  position: relative;
+  padding: 2rem;
+  margin: auto;
+  height: 100vh;
+}
+
+.plots polyline {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  transition: all 333ms ease;
+}
+
+.main .plots polyline {
+  stroke-width: 0.2rem;
+}
+
+.zoom .plots polyline {
+  stroke-width: 0.1rem;
+}
+
+.ticks g, .tick-text {
+  transition: all 333ms ease;
+}
+
+.ticks line {
+  stroke: #f2f4f5;
+  stroke-width: 2px;
+}
+
+.ticks g.old, .tick-text.old {
+  opacity: 0;
+}
+
+.ticks g.enter, .tick-text.enter {
+  opacity: 0;
+  animation: enter 333ms forwards;
+}
+
+.tick-text {
+  font-size: 1.6rem;
+  transform-origin: center center;
+  font-family: Helvetica, sans-serif;
+  fill: #96a2aa;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+.tooltip {
+  transform-origin: center center;
+}
+
+.tooltip .container {
+  fill: white;
+  filter: url(#dropshadow);
+}
+
+.tooltip text {
+  font-family: Helvetica, sans-serif;
+  font-size: 1.8rem;
+}
+
+.tooltip .date {
+  fill: #222222;
+  font-weight: 600;
+}
+
+.tooltip .value {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.tooltip-line {
+  stroke: #dfe6eb;
+  vector-effect: non-scaling-stroke;
+}
+
+.marker {
+  stroke-width: 0.3rem;
+  fill: white;
+}
+
+.xscale-container {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  height: 2rem;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+}
+
+.xscale {
+  overflow-y: visible;
+  position: absolute;
+  height: 2rem;
+}
+
+.xscale span {
+  position: absolute;
+  color: #868691;
+  font-size: 1.6rem;
+  font-family: Helvetica, sans-serif;
+  /* transfrom: none; */
+  transition: opacity 333ms;
+}
+
+.buttons {
+  margin-top: 2rem;
+}
+
+.toggle {
+  font-size: 2.6rem;
+  line-height: 2.6rem;
+  padding: 1rem;
+  border: 0.2rem solid #e6ecf0;
+  border-radius: 2.8rem 2.8rem;
+  margin-right: 2rem;
+  display: inline-flex;
+  background: white;
+}
+
+.toggle span {
+  margin-right: 1rem;
+  color: #43484b;
+  pointer-events: none;
+}
+
+.toggle .icon {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: white;
+  transition: all 333ms ease;
+}
+
+.toggle .icon::after{
+  content: '';
+  display: block;
+  width: 0.6rem;
+  height: 1.2rem;
+  margin-left: 1.1rem;
+  margin-top: 0.6rem;
+  border: solid white;
+  border-width: 0 0.2rem 0.2rem 0;
+  transform: rotate(45deg);
+}
+
+.toggle.active .icon {
+  background: grey !important;
+}
