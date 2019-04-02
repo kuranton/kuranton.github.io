@@ -1,10 +1,20 @@
-body {
-  margin: 20px;
-  padding: 0;
+html, body {
+  margin: 0;
+  width: 100%;
+  font-size: 10px;
 }
 
-#chart-wrapper {
+@media (-webkit-min-device-pixel-ratio: 2) {
+  html, body {
+    font-size: 20px;
+  }
+}
+
+.wrapper {
   position: relative;
+  padding: 2rem;
+  margin: auto;
+  height: 100vh;
 }
 
 .plots polyline {
@@ -13,12 +23,12 @@ body {
   transition: all 333ms ease;
 }
 
-#main .plots polyline {
-  stroke-width: 4px;
+.main .plots polyline {
+  stroke-width: 0.2rem;
 }
 
-#zoom .plots polyline {
-  stroke-width: 2px;
+.zoom .plots polyline {
+  stroke-width: 0.1rem;
 }
 
 .ticks g, .tick-text {
@@ -27,7 +37,7 @@ body {
 
 .ticks line {
   stroke: #f2f4f5;
-  stroke-width: 3px;
+  stroke-width: 2px;
 }
 
 .ticks g.old, .tick-text.old {
@@ -40,6 +50,7 @@ body {
 }
 
 .tick-text {
+  font-size: 1.6rem;
   transform-origin: center center;
   font-family: Helvetica, sans-serif;
   fill: #96a2aa;
@@ -64,6 +75,7 @@ body {
 
 .tooltip text {
   font-family: Helvetica, sans-serif;
+  font-size: 1.8rem;
 }
 
 .tooltip .date {
@@ -72,7 +84,7 @@ body {
 }
 
 .tooltip .value {
-  font-size: 1.2em;
+  font-size: 2.2rem;
   font-weight: bold;
 }
 
@@ -82,47 +94,51 @@ body {
 }
 
 .marker {
-  stroke-width: 4px;
+  stroke-width: 0.3rem;
   fill: white;
 }
 
 .xscale-container {
   position: relative;
-  width: 1000px;
-  height: 50px;
   overflow-x: hidden;
   overflow-y: visible;
+  height: 2rem;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
 }
 
-#xscale {
+.xscale {
   overflow-y: visible;
+  position: absolute;
+  height: 2rem;
 }
 
-#xscale span {
+.xscale span {
   position: absolute;
   color: #868691;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-family: Helvetica, sans-serif;
+  /* transfrom: none; */
   transition: opacity 333ms;
 }
 
-#buttons {
-  margin-top: 20px;
+.buttons {
+  margin-top: 2rem;
 }
 
 .toggle {
-  font-size: 26px;
-  line-height: 26px;
-  padding: 10px;
-  border: 2px solid #e6ecf0;
-  border-radius: 28px 28px;
-  margin-right: 20px;
+  font-size: 2.6rem;
+  line-height: 2.6rem;
+  padding: 1rem;
+  border: 0.2rem solid #e6ecf0;
+  border-radius: 2.8rem 2.8rem;
+  margin-right: 2rem;
   display: inline-flex;
   background: white;
 }
 
 .toggle span {
-  margin-right: 10px;
+  margin-right: 1rem;
   color: #43484b;
   pointer-events: none;
 }
@@ -130,8 +146,8 @@ body {
 .toggle .icon {
   content: '';
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background: white;
   transition: all 333ms ease;
@@ -140,12 +156,12 @@ body {
 .toggle .icon::after{
   content: '';
   display: block;
-  width: 6px;
-  height: 12px;
-  margin-left: 11px;
-  margin-top: 6px;
+  width: 0.6rem;
+  height: 1.2rem;
+  margin-left: 1.1rem;
+  margin-top: 0.6rem;
   border: solid white;
-  border-width: 0 2px 2px 0;
+  border-width: 0 0.2rem 0.2rem 0;
   transform: rotate(45deg);
 }
 
